@@ -26,3 +26,13 @@ services:
       retries: 10
       start_period: 60s
     restart: unless-stopped
+    networks:
+      - shared_network # Connect to the shared network
+
+networks:
+  shared_network:
+    external: true # This tells Docker Compose to look for an existing network
+    name: shared_network # The name of the external network you created
+  # If you still want vault_default for other internal Vault services:
+  vault_default:
+    driver: bridge

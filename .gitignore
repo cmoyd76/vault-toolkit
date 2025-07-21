@@ -44,3 +44,4 @@ README.md.bak
 # Ignore zipped bundles or archives
 *.zip
 *.tar.gz
+test.json
