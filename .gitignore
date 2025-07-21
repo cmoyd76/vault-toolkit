@@ -1,0 +1,46 @@
+# Ignore certs and keys (should never be committed)
+config/certs/
+!config/certs/README.md  # allow placeholder or documentation
+
+# Ignore Vault data and logs
+data/vault_data/
+data/vault_logs/
+
+# Ignore Vault init keys
+vault_keys.txt
+
+# Ignore Docker artifacts
+*.log
+*.pid
+*.sock
+*.bak
+*.swp
+*.tmp
+
+# Ignore environment files (if used)
+.env
+.env.*
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*~
+*.old
+*.orig
+
+# Ignore Python cache if you're using scripts
+__pycache__/
+*.pyc
+
+# Ignore system-generated files
+.idea/
+.vscode/
+
+# Ignore README backup or generated output
+README.md.bak
+
+# Ignore zipped bundles or archives
+*.zip
+*.tar.gz

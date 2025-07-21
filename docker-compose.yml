@@ -1,0 +1,28 @@
+services:
+  vault:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: myvault:dev
+    container_name: vault
+    ports:
+      - "8200:8200"
+      - "443:443"
+    environment:
+      - VAULT_ADDR=https://127.0.0.1:8200
+      - VAULT_CACERT=/vault/certs/ca.crt
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - ./data/vault_data:/vault/data
+      - ./data/vault_logs:/vault/logs
+      - ./config:/vault/config:Z
+      - ./config/certs:/vault/certs:ro,z
+    entrypoint: vault server -config=/vault/config/vault.hcl
+    healthcheck:
+      test: ["CMD-SHELL", "vault status || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+    restart: unless-stopped
