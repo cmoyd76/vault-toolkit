@@ -28,7 +28,7 @@ This toolkit simplifies the setup of a secure, self-signed TLS-enabled [HashiCor
 ### 1. Clone this Repository
 
 ```bash
-git clone https://your-org-or-user/vault-toolkit.git
+git clone https://github.com/cmoyd76/vault-toolkit.git
 cd vault-toolkit
 ```
 
